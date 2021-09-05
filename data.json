@@ -1,0 +1,20 @@
+{
+  "users": {
+    "u1": ["g1", "g2", "g3"],
+    "u3": ["g3"]
+  },
+  "resources": {
+    "r1": {
+      "g1": ["reader"],
+      "g2": ["writer"]
+    },
+    "r2": {
+      "g1": ["reader"],
+      "g2": ["reader"]
+    }
+  },
+  "roles": {
+    "writer": ["read", "write"],
+    "reader": ["read"]
+  }
+}
