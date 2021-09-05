@@ -14,7 +14,8 @@ type Input struct {
 func BenchmarkIsAuthorized(b *testing.B) {
 	policies := []string{"../policies/policy.rego"}
 	ctx := context.Background()
-	data := GetJsonFileData("../data.json")
+	data := GetJsonFileData("../test.json")
+
 	path := "data.authz.allow"
 	ac := New(ctx, policies, path, data)
 	input := Input{
@@ -24,7 +25,6 @@ func BenchmarkIsAuthorized(b *testing.B) {
 	}
 
 	b.ResetTimer()
-
 	for i := 0; i < b.N; i++ {
 		ac.IsAuthorized(ctx, input)
 	}
